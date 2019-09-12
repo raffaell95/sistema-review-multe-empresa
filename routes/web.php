@@ -22,7 +22,7 @@ Route::group(['middleware' => 'admin'], function(){
         Route::put('produto/{id}', 'Painel\ProdutoController@update')->name('produto.update');
         Route::get('produto/{id}', 'Painel\ProdutoController@show')->name('produto.show');
         Route::delete('produto/{id}', 'Painel\ProdutoController@destroy')->name('produto.destroy');
-        Route::get('/pedido', 'Painel\PedidoController@index');
+        Route::get('/pedido', 'Painel\PedidoController@index')->name('admin.pedidos');
     });
 
     

@@ -8,7 +8,7 @@
           <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
               <div class="card-body">
-                <h5 class="card-title text-center">Sign In Admin</h5>
+                <h5 class="card-title text-center">Login - Administrador</h5>
                 
                 <form class="form-signin" method="POST" action="{{ route('login.painel') }}">
                 @csrf
@@ -40,13 +40,13 @@
                         <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
+                                <label class="form-check-label" for="remember">{{ __('Lembrar') }}</label>
                             </div>
                   </div>
 
                   <div class="form-check">
                         @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+                            <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Esqueceu sua senha?') }}</a>
                         @endif
                   </div>
 

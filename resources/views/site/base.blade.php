@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Orogold - review</title>
+  <title>Sistema de Pedidos</title>
   
   <!-- PLUGINS CSS STYLE -->
   <link href="{{ url('plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
@@ -37,39 +37,55 @@
 			
         
 				<nav class="navbar navbar-expand-lg  navigation">
-					<a class="navbar-brand" href="index.html">
-						<img src="images/logo.png" alt="">
-					</a>
+
+          <h3 class="navbar-brand"><a href="{{route('home')}}">Sistema de pedido</a></h3>
 					
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto main-nav ">
-							<li class="nav-item active">
-								<a class="nav-link" href="{{ route('home') }}">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#l">About</a>
-							</li>
-							
-							
-						</ul>
+	
 						<ul class="navbar-nav ml-auto mt-10">
                 @guest
+
+               
                 <li class="nav-item dropdown dropdown-slide">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a href="{{route('home')}}" class="nav-link">Home</a>
+                  </li>
+
+                <li class="nav-item dropdown dropdown-slide">
+                    <a href="" class="nav-link">{{ __('Login') }}</a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="nav-link logout" href="{{ route('login') }}">{{ __('Cliente') }}</a>
+                      <a class="nav-link logout" href="{{ route('login.painel') }}">{{ __('Administrador') }}</a>
+                    </div>
+                            
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
                     </li>
                 @endif
             @else
+
+              @if(Auth::user()->first_name == null)
+
+                <li class="nav-item dropdown dropdown-slide">
+                  <a href="{{url('/admin')}}" class="nav-link">Home</a>
+                </li>
+
+              @else
+                <li class="nav-item dropdown dropdown-slide">
+                  <a href="{{route('home')}}" class="nav-link">Home</a>
+                </li>
+              @endif
+             
+
                 <li class="nav-item dropdown dropdown-slide">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->first_name }} <span class="caret"></span>
+                        {{ Auth::user()->first_name == null? 'Admin': Auth::user()->first_name }} <span class="caret"></span>
                     </a>
 
                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item logout" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -82,7 +98,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Reclamar</a>
+                  @if (Auth::user()->first_name == null)
+                  <a class="nav-link" href="{{ route('admin.pedidos') }}">Lista geral de pedidos</a>
+
+                  @else
+                  <a class="nav-link" href="{{ route('pedido.cliente.lista', Auth::user()->id) }}">Meus Pedidos</a>
+                  @endif
+                    
                 </li>
 
             @endguest
@@ -97,83 +119,11 @@
 
 @yield('content')
 
-
-
-<footer class="footer section section-sm">
-  <!-- Container Start -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0">
-        <!-- About -->
-        <div class="block about">
-          <!-- footer logo -->
-          <img src="images/logo.png" alt="">
-          <!-- description -->
-          <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-      <!-- Link list -->
-      <div class="col-lg-2 offset-lg-1 col-md-3">
-        <div class="block">
-          <h4>Site Pages</h4>
-          <ul>
-            <li><a href="#">Boston</a></li>
-            <li><a href="#">How It works</a></li>
-            <li><a href="#">Deals & Coupons</a></li>
-            <li><a href="#">Articls & Tips</a></li>
-            <li><a href="#">Terms of Services</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- Link list -->
-      <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0">
-        <div class="block">
-          <h4>Admin Pages</h4>
-          <ul>
-            <li><a href="#">Boston</a></li>
-            <li><a href="#">How It works</a></li>
-            <li><a href="#">Deals & Coupons</a></li>
-            <li><a href="#">Articls & Tips</a></li>
-            <li><a href="#">Terms of Services</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- Promotion -->
-      <div class="col-lg-4 col-md-7">
-        <!-- App promotion -->
-        <div class="block-2 app-promotion">
-          <a href="">
-            <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon">
-          </a>
-          <p>Get the Dealsy Mobile App and Save more</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Container End -->
-</footer>
 <!-- Footer Bottom -->
 <footer class="footer-bottom">
     <!-- Container Start -->
     <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-12">
-          <!-- Copyright -->
-          <div class="copyright">
-            <p>Copyright © 2016. All Rights Reserved</p>
-          </div>
-        </div>
-        <div class="col-sm-6 col-12">
-          <!-- Social Icons -->
-          <ul class="social-media-icons text-right">
-              <li><a class="fa fa-facebook" href=""></a></li>
-              <li><a class="fa fa-twitter" href=""></a></li>
-              <li><a class="fa fa-pinterest-p" href=""></a></li>
-              <li><a class="fa fa-vimeo" href=""></a></li>
-            </ul>
-        </div>
-      </div>
+      
     </div>
     <!-- Container End -->
     <!-- To Top -->
