@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             'company_name' => 'Admin',
             'site_company' => 'site.com.br',
             'email_company' => 'admin@admin.com',
-            'responsible_name' => 'Naruto',
+            'responsible_name' => 'Admin',
             'password' => Hash::make('123456')
         ]);
     }

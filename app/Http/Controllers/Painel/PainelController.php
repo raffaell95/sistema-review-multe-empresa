@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Painel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;   
+use Auth;
+use App\Models\Painel\Produto;   
 
 class PainelController extends Controller
 {
@@ -14,11 +15,15 @@ class PainelController extends Controller
     }
 
 
-    public function index()
+    public function index(Produto $produto)
     {
-        return view('painel.index');
+       
+        $produtos = $produto->all();
+        
+        return view('painel.index', compact('produtos'));
     }
 
+ 
 
     public function loginPainel()
     {
@@ -53,5 +58,6 @@ class PainelController extends Controller
         auth()->guard('admin')->logout();
         return redirect('/admin/login');
     }
+
 
 }

@@ -183,6 +183,10 @@
 </footer>
 
   <!-- JAVASCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
   <script src="{{ url('plugins/jquery/jquery.min.js') }}"></script>
   <script src="{{ url('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
   <script src="{{ url('plugins/tether/js/tether.min.js') }}"></script>
@@ -196,6 +200,7 @@
   <script src="{{ url('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
   <script src="{{ url('js/scripts.js') }}"></script>
+
 
 </body>
 

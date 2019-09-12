@@ -2521,4 +2521,8 @@ article.single-post p {
   margin-top: 20px;
 }
 
+.table-responsive{
+  display: inline-table !important;
+}
+
 /*# sourceMappingURL=maps/style.css.map */
