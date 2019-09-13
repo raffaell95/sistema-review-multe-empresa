@@ -24,7 +24,7 @@
 
             <option value="{{$categoria}}"
             @if (isset($produto) && $produto->categoria == $categoria) selected @endif >{{$categoria}}</option>
- 
+        
         @endforeach
     </select>
 </div>

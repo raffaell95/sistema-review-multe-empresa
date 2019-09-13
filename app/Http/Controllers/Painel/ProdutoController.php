@@ -79,7 +79,7 @@ class ProdutoController extends Controller
 
        $categorias = ['Eletronicos', 'Moveis', 'Limpeza', 'Banho', 'Outros'];
 
-            
+       $produto = $this->produto->find($id);    
 
        return view('painel.editar-produto', compact('categorias', 'produto'));
 
