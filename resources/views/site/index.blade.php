@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="popular-deals section bg-gray">
+<section class="popular-deals section bg-gray home-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -38,7 +38,7 @@
 						</ul>
 						<p class="card-text">{{$produto->descricao}}</p>
 						<hr>
-						<a href="{{route('pedido.create', $produto->id)}}" class="btn btn-primary">Realizar pedido</a>
+						<a href="{{route('pedido.create', $produto->id)}}" class="btn btn-primary">Gerar pedido</a>
 					</div>
 				</div>
 			</div>

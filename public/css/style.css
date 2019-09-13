@@ -5,6 +5,11 @@ body {
   font-family: "Muli", sans-serif;
 }
 
+
+.container{
+  margin-bottom: 30px;
+}
+
 p, li, input, select, button {
   font-family: "Muli", sans-serif;
   color: #666;
@@ -807,6 +812,7 @@ ul.pagination .active a {
     margin-left: 0;
     padding-left: 25px;
     padding-right: 25px;
+
   }
 }
 
@@ -2527,6 +2533,14 @@ article.single-post p {
 
 .logout{
   color: #000 !important;
+}
+
+.description-class{
+  height: auto;
+}
+
+.home-section{
+  margin-top: -30px;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

@@ -6,6 +6,8 @@
 <br><br>
 <div class="container">
 
+    <h3>Cadastrar novo produto</h3>
+    <hr>
 
 <form method="post" action="{{ route('produto.store') }}">
     @csrf
@@ -38,11 +40,11 @@
         
         <div class="form-group">
                 <label for="descricao-produto">Descrição do produto</label>
-                <textarea class="form-control" id="descricao-produto" rows="3" name="descricao"></textarea>
+                <textarea class="form-control description-class" id="descricao-produto" rows="3" name="descricao"></textarea>
               </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a href="{{url('/admin')}}" class="btn btn-primary">Cancelar</a>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     </form>

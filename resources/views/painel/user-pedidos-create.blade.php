@@ -37,11 +37,11 @@
         
         <div class="form-group">
                 <label for="descricao-produto">Descrição do produto</label>
-        <textarea class="form-control" id="descricao-produto" rows="3" disabled name="descricao">{{$produtos->descricao}}</textarea>
+        <textarea class="form-control description-class" id="descricao-produto" rows="3" disabled name="descricao">{{$produtos->descricao}}</textarea>
               </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <a href="{{route('home')}}" class="btn btn-primary">Cancelar</a>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     </form>
